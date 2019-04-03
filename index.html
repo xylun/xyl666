@@ -1,139 +1,121 @@
-<!DOCTYPE html>
-<html onselectstart="return false">
-<!-- onselectstart="return false" 禁止页面复制-->
-<head lang="en">
-    /*onselectstart="return false"*/
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>document</title>
-    <!--一共用的就是40到50个单词记住即可-->
-    <!-- div.pic 是创建一个盒子-->
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
+    <title>旋转相册</title>
+    <style type="text/css">
+        body,div,p,ul,ol,li,dl,dt,dd,table,tr,td,form,hr,fieldset,h1,h2,h3,h4,h5,h6,img,input{
+            margin:0;
+            padding:0;
         }
         body{
-            background-color: #000;
+            background: black;
         }
-        div.pic{
-            width: 120px;
-            height: 180px; /* 133:200  约等于 4:6  */
-            /*border: 1px dotted #f00;*/
-            margin: 200px auto 0;/*上---左右---下 */
+        .content{
+            width: 200px;
+            height: 150px;
             position: relative;
+            margin:200px auto 0;
+            perspective: 1500px;
+        }
+        .box{
+            width: 200px;
+            height: 150px;
             transform-style: preserve-3d;
-            transform: perspective(800px) rotateX(-10deg) rotateY(0deg);
+            transform:rotateX(-30deg);
+            animation:photo 15s linear infinite;
         }
-        div.pic img{
+        .box:hover{
+            animation:photo 15s linear infinite paused;
+        }
+        .box img{
+            width: 200px;
+            height: 150px;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 5px; /*加上圆角*/
-            box-shadow: 0px 0px 10px #fff;/*box-shadow 属性向框添加一个或多个阴影*/
-            -webkit-box-reflect: below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,0.5) 100%); /*box-reflect倒影属性练习*/
-            /*-webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,1) , 这是一个渐变*/
+            left: 0;
+            top: 0;
+            transform-style: preserve-3d;
+            transition: all 1s;
         }
-        div.pic p{
-            width: 1200px;
-            height: 1200px;
-            background: -webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,0.3),rgba(0,0,0,0));
-            left: 50%;top: 100%;
-            margin-top: -50px;
-            margin-left: -600px;
-            transform: rotateX(90deg);
-            border-radius: 600px;
+        .box img:nth-child(1){
+            transform:translateZ(280px);
+        }
+        .box img:nth-child(2){
+            transform:rotateY(40deg) translateZ(280px);
+        }
+        .box img:nth-child(3){
+            transform:rotateY(80deg) translateZ(280px);
+        }
+        .box img:nth-child(4){
+            transform:rotateY(120deg) translateZ(280px);
+        }
+        .box img:nth-child(5){
+            transform:rotateY(160deg) translateZ(280px);
+        }
+        .box img:nth-child(6){
+            transform:rotateY(200deg) translateZ(280px);
+        }
+        .box img:nth-child(7){
+            transform:rotateY(240deg) translateZ(280px);
+        }
+        .box img:nth-child(8){
+            transform:rotateY(280deg) translateZ(280px);
+        }
+        .box img:nth-child(9){
+            transform:rotateY(320deg) translateZ(280px);
+        }
+
+        .box img:nth-child(1):hover{
+            transform:translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(2):hover{
+            transform:rotateY(40deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(3):hover{
+            transform:rotateY(80deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(4):hover{
+            transform:rotateY(120deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(5):hover{
+            transform:rotateY(160deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(6):hover{
+            transform:rotateY(200deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(7):hover{
+            transform:rotateY(240deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(8):hover{
+            transform:rotateY(280deg) translateZ(280px) scale(1.2);
+        }
+        .box img:nth-child(9):hover{
+            transform:rotateY(320deg) translateZ(280px) scale(1.2);
+        }
+
+        @keyframes photo{
+            0%{
+                transform:rotateX(-30deg) rotateY(0deg);
+            }
+            100%{
+                transform:rotateX(-30deg) rotateY(360deg);
+            }
         }
     </style>
 </head>
 <body>
-<!--div 长方型的区域-->
-<div class="pic">
-    <img src="body_bg.png" alt="1.jpg"/>
-    <img src="body_bg.png" alt="2.jpg"/>
-    <img src="body_bg.png" alt="3.jpg"/>
-    <img src="body_bg.png" alt="4.jpg"/>
-    <img src="body_bg.png" alt="5.jpg"/>
-    <img src="body_bg.png" alt="6.jpg"/>
-    <img src="body_bg.png" alt="7.jpg"/>
-    <img src="body_bg.png" alt="8.jpg"/>
-    <img src="body_bg.png" alt="9.jpg"/>
-    <img src="body_bg.png" alt="10.jpg"/>
-    <img src="body_bg.png" alt="11.jpg"/>
-    <p></p>
+<div class="content">
+    <div class="box">
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+        <img src="body_bg.png" alt=""/>
+    </div>
 </div>
-<script src="jquery.js"></script>
-<script>
-    $(function(){
-        //设定初始变化值
-        var translate=800;
-        //文档添加鼠标滚轮事件，demo没写兼容，不支持火狐
-        document.addEventListener("mousewheel",function(e){  //缩放
-            var distance=50 //每次滚轮缩放变化值
-            if(e.wheelDelta>0){      //方向
-                clearInterval(play)
-                translate+=distance    //perspective值变化
-                $("div.pic").css({
-                    transform:'perspective('+translate+'px) rotateX('+toX+'deg)  rotateY('+toY+'deg)'
-                });  //css3变化
-
-            }else if(e.wheelDelta<0){
-                clearInterval(play)
-                translate-=distance
-                $("div.pic").css({
-                    transform:'perspective('+translate+'px) rotateX('+toX+'deg)  rotateY('+toY+'deg)'
-                });
-            }
-        })
-        var imgL = $("div.pic img").size();  //img数量
-//            alert(imgL);
-        var deg = 360 / imgL;   //角度
-        var toY = 0, toX = -10;
-        var xN = 0,yN = 0;
-        var play = null;
-
-        $("div.pic img").each(function(i){
-            $(this).css({
-                'transform':'rotateY('+i*deg+'deg) translateZ(350px)'  //css设置，分别设定变化角度，同样的z轴变化，形成一个圆
-            });
-            $(this).attr("ondragstart","return false");
-            /*浏览器禁止拖拽功能*/
-        });
-        $(document).mousedown(function(ev){
-            /*console.log("shu biao an xia le !");*/
-            var x_ = ev.clientX;
-            var y_ = ev.clientY;
-            clearInterval(play);
-            $(this).bind("mousemove",(function(ev){
-                /* console.log('yi dong !');*/
-                var x = ev.clientX;
-                var y = ev.clientY;
-                xN = x - x_;
-                yN = y - y_;
-                toY += xN*0.2;
-                toX -= yN*0.1;
-
-                //$("body").append('<div style="width:5px;height:5px;background:#f00;position:absolute;top:"+y+"px;left:"+x+"px;"></div>')/*打点计数器*/
-                $("div.pic").css({
-                    transform:'perspective('+translate+'px) rotateX('+toX+'deg)  rotateY('+toY+'deg)'
-                });
-                x_ = ev.clientX;
-                y_ = ev.clientY;
-            }));
-        }).mouseup(function(){
-            $(this).unbind("mousemove");
-            var play = setInterval(function(){
-                xN *= 0.95;
-                yN *= 0.95;
-                if ( Math.abs(xN) < 1 && Math.abs(yN) < 1 )/*Math绝对值*/clearInterval(play);
-                toY += xN*0.2;
-                toX -= yN*0.1;
-                $("div.pic").css({
-                    transform:'perspective('+translate+'px) rotateX('+toX+'deg)  rotateY('+toY+'deg)'
-                });
-            },30);
-            //return play
-        });
-    });
-</script>
 </body>
 </html>
